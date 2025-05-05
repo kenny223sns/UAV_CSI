@@ -353,6 +353,23 @@ ax3.set(title='Delay–Doppler |All|', xlabel='Delay (ns)')
 plt.tight_layout()
 plt.show()
 
+def qpsk_hard_decision(sym):
+    """sym: complex ndarray of shape (...,)"""
+    b0_hat = (sym.real < 0).astype(np.uint8)   # MSB
+    b1_hat = (sym.imag < 0).astype(np.uint8)   # LSB
+    return np.stack([b0_hat, b1_hat], axis=-1) # (..., 2)
+
+# ❶ 解調
+b_hat_no_i   = qpsk_hard_decision(y_eq_no_i)
+b_hat_with_i = qpsk_hard_decision(y_eq_with_i)
+
+# ❷ 與原始 bits 比對並計算 BER
+bits_ref = bits.reshape(-1)                 # 你在 §8 產生的 bits
+ber_no_i   = np.mean((b_hat_no_i.reshape(-1)   != bits_ref))
+ber_with_i = np.mean((b_hat_with_i.reshape(-1) != bits_ref))
+
+print(f"BER (No-I)  : {ber_no_i:.4e}")
+print(f"BER (With-I): {ber_with_i:.4e}")
 
 
 import tensorflow as tf

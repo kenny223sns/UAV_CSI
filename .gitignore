@@ -5,3 +5,4 @@
 *.pth
 project_test/checkpoints/*.pth
 project_test/checkpoints/*.npy
+project_test/checkpoints/*.pth

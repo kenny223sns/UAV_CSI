@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "uav-csi"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+tensorflow-io-gcs-filesystem = "^0.37.1"
+mitsuba = "3.5.0"
+matplotlib = "^3.10.0"
+notebook = "^7.3.2"
+ipykernel = "^6.29.5"
+jupyter = "^1.1.1"
+ipywidgets = "8.0.4"
+pyqt5 = "^5.15.11"
+tensorflow = "^2.13.0"
+ml-dtypes = "^0.3.1"
+sionna = "^0.19.1"
+google = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

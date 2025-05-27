@@ -1,0 +1,7 @@
+*.deb
+*.deb
+*.venv
+*.npy
+*.pth
+project_test/checkpoints/*.pth
+project_test/checkpoints/*.npy
